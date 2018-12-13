@@ -1,7 +1,7 @@
 {
   "name": "element-form-builder",
   "version": "0.1.0",
-  "description": "Generate form of element-ui using JSON configuration.",
+  "description": "Build form of element-ui using JSON configuration.",
   "main": "dist/index.js",
   "scripts": {
     "build": "node scripts/build.js",
