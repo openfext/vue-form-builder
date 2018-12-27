@@ -125,8 +125,8 @@ var FormBuilder = {
     },
     renderFormItem: function renderFormItem(h, _ref2) {
       var tag = _ref2.tag,
-          _ref2$label = _ref2.label,
-          label = _ref2$label === undefined ? {} : _ref2$label,
+          _ref2$item = _ref2.item,
+          label = _ref2$item === undefined ? {} : _ref2$item,
           _ref2$detail = _ref2.detail,
           detail = _ref2$detail === undefined ? {} : _ref2$detail;
 
