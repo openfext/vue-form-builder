@@ -3,14 +3,21 @@
     <el-card class="preview-card">
       <div slot="header">
         <span>动态表单示例</span>
-        <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+        <div class="pull-right">
+          <a target="_blank" href="https://codetrial.github.io">@Codetrial</a>
+        </div>
       </div>
       <el-row :gutter="24">
         <el-col :span="8">
-          <el-form-builder :config="config" :model="formValues" label-width="48px"></el-form-builder>
+          <el-form-builder :config="formConfig" :model="formValues" label-width="80px">
+            <el-button>提交</el-button>
+          </el-form-builder>
         </el-col>
-        <el-col :span="16">
-          <el-input type="textarea"></el-input>
+        <el-col :span="8">
+          <el-input v-model="config.elements" type="textarea" rows="24"></el-input>
+        </el-col>
+        <el-col :span="8">
+          <el-input v-model="config.rules" type="textarea" rows="24"></el-input>
         </el-col>
       </el-row>
     </el-card>
@@ -21,25 +28,61 @@
 export default {
   name: 'FormBuilderPreview',
 
+  watch: {
+    config: {
+      deep: true,
+      immediate: true,
+      handler({ rules, elements }) {
+        try {
+          this.formConfig = {
+            rules: JSON.parse(rules),
+            elements: JSON.parse(elements)
+          }
+        } catch (err) {
+          console.error('[JSON Parse Error] -> ', err.message)
+        }
+      }
+    }
+  },
+
   data() {
     return {
-      config: {
-        rules: {},
-        elements: [
-          {
-            tag: 'el-input',
-            item: {
-              label: '标题'
-            },
-            detail: {
-              name: 'title'
-            }
-          }
-        ]
-      },
-
       formValues: {
         title: ''
+      },
+
+      formConfig: {
+        rules: {},
+        elements: []
+      },
+
+      config: {
+        rules: JSON.stringify(
+          {
+            title: [
+              { required: true, message: '请输入名称' },
+              { max: 5, message: '最多 5 个字符' }
+            ]
+          },
+          null,
+          4
+        ),
+
+        elements: JSON.stringify(
+          [
+            {
+              tag: 'el-input',
+              item: {
+                label: '标题'
+              },
+              detail: {
+                name: 'title'
+              }
+            }
+          ],
+          null,
+          4
+        )
       }
     }
   }
@@ -50,5 +93,9 @@ export default {
 .preview {
   height: 100%;
   margin: 48px;
+}
+
+.pull-right {
+  float: right;
 }
 </style>
