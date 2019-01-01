@@ -1,6 +1,6 @@
 /**
- * Element form-builder v0.1.0
- * (c) 2018 Felix Yang
+ * Element form-builder v1.0.0
+ * (c) 2019 Felix Yang
  */
 var _extends = Object.assign || function (target) {
   for (var i = 1; i < arguments.length; i++) {
