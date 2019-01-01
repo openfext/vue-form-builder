@@ -4,29 +4,29 @@
 [![License](https://img.shields.io/npm/l/element-form-builder.svg)](https://www.npmjs.com/package/element-form-builder)
 [![Dependencies](https://img.shields.io/david/codetrial/element-form-builder.svg)](https://www.npmjs.com/package/element-form-builder)
 
-Build element-ui forms with JSON schema.
+使用 JSON 配置构建 element-ui 动态表单.
 
-## Example
+## 在线示例
 
-[:zap: Live Preview](https://element-form-builder.now.sh) | [:book: Docs](https://codetrial.github.io/element-form-builder)
+[:zap: 在线示例](https://element-form-builder.now.sh) | [:book: 参考文档](https://codetrial.github.io/element-form-builder)
 
 ![Screen Capture](.github/preview.gif)
 
-## Quick Start
+## 快速开始
 
-First you need to have an element-ui project. If not, it is recommended to create one quickly using the preset below.
+首先你需要有一个 element-ui 项目。如果没有，推荐使用下面的 preset 快速创建一个。
 
 ```bash
 vue create --preset codetrial/vue-cli-plugin-element your-project
 ```
 
-### Install
+### 安装
 
 ```bash
 yarn add element-form-builder
 ```
 
-### Registry
+### 注册组件
 
 ```javascript
 import FormBuilder from 'element-form-builder'
@@ -34,19 +34,20 @@ import FormBuilder from 'element-form-builder'
 Vue.use(FormBuilder)
 ```
 
-### Witness the miracle moment
+### 见证奇迹的时刻
 
-Vue template:
+Vue 模板:
 
 ```html
 <el-form-builder :config="formConfig" v-model="formValues" label-width="80px">
 </el-form-builder>
 ```
 
-Vue component:
+Vue 组件:
 
 ```javascript
 export default {
+  name: 'some-component',
   data() {
     return {
       formValues: {
@@ -55,13 +56,13 @@ export default {
 
       formConfig: {
         rules: {
-          title: [{ required: true, message: 'Please enter the title' }]
+          title: [{ required: true, message: '请输入标题' }]
         },
         elements: [
           {
             tag: 'el-input',
             item: {
-              label: 'Title'
+              label: '标题'
             },
             detail: {
               name: 'title'
@@ -74,23 +75,23 @@ export default {
 }
 ```
 
-## Core Features
+## 核心功能
 
-- :camera: Any Component
-- :tv: Form Validation
-- :watch: Form Model
-- :radio: Custom Slot
+- :camera: 支持任意组件
+- :tv: 表单校验
+- :watch: 表单数据模型
+- :radio: 自定义插槽
 
-## Contributing
+## 贡献
 
-Looking forward to your pull requests.
+期待你的 `pull requests`。如果你觉得有帮助，还请多多反馈！
 
-## Built With
+## 技术栈
 
 - [Vue.js](https://github.com/vuejs/vue)
 - [ElementUI](https://github.com/ElemeFE/element)
 
-## License
+## 许可
 
 [MIT](http://opensource.org/licenses/MIT)
 
