@@ -1,6 +1,6 @@
 {
   "name": "element-form-builder",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Build element-ui forms with JSON schema.",
   "main": "dist/index.js",
   "scripts": {
