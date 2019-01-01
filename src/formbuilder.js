@@ -74,6 +74,10 @@ export default {
     )
   },
 
+  created () {
+    this.$emit('input', this.formValues)
+  },
+
   methods: {
     mergeValues () {
       const vm = this
@@ -96,7 +100,7 @@ export default {
       }
     },
 
-    renderFormItem (h, { tag, label = {}, detail = {} }) {
+    renderFormItem (h, { tag, item: label = {}, detail = {} }) {
       const vm = this
       const { formValues, size } = vm
       const { name } = detail

@@ -1,7 +1,8 @@
 const babel = require('rollup-plugin-babel')
 const rollup = require('rollup')
 const version = process.env.VERSION || require('../package.json').version
-const banner = `/**\n * Element form-builder v${version}\n * (c) 2018 Felix Yang\n */`
+const year = new Date().getFullYear()
+const banner = `/**\n * Element form-builder v${version}\n * (c) ${year} Felix Yang\n */`
 
 const inputOptions = {
   input: 'src/index.js',

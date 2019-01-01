@@ -1,6 +1,6 @@
 /**
- * Element form-builder v0.1.0
- * (c) 2018 Felix Yang
+ * Element form-builder v1.0.0
+ * (c) 2019 Felix Yang
  */
 var _extends = Object.assign || function (target) {
   for (var i = 1; i < arguments.length; i++) {
@@ -96,6 +96,9 @@ var FormBuilder = {
       }
     }, [].concat(toConsumableArray(vm.$slots.prepend || []), toConsumableArray(vm.renderFormItems(h) || []), toConsumableArray(vm.$slots.append || [])));
   },
+  created: function created() {
+    this.$emit('input', this.formValues);
+  },
 
 
   methods: {
@@ -125,8 +128,8 @@ var FormBuilder = {
     },
     renderFormItem: function renderFormItem(h, _ref2) {
       var tag = _ref2.tag,
-          _ref2$label = _ref2.label,
-          label = _ref2$label === undefined ? {} : _ref2$label,
+          _ref2$item = _ref2.item,
+          label = _ref2$item === undefined ? {} : _ref2$item,
           _ref2$detail = _ref2.detail,
           detail = _ref2$detail === undefined ? {} : _ref2$detail;
 
