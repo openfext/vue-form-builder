@@ -26,6 +26,8 @@ vue create --preset codetrial/vue-cli-plugin-element your-project
 
 ```bash
 yarn add element-form-builder
+# OR
+npm i element-form-builder
 ```
 
 ### 注册组件
