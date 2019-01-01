@@ -6,6 +6,8 @@
 
 使用 JSON 配置构建 element-ui 动态表单.
 
+:cn: 简体中文 | [:us: English](README.md)
+
 ## 在线示例
 
 [:zap: 在线示例](https://element-form-builder.now.sh) | [:book: 参考文档](https://codetrial.github.io/element-form-builder)

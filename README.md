@@ -6,6 +6,8 @@
 
 Build element-ui forms with JSON schema.
 
+:us: English | [:cn: 简体中文](README.zh-CN.md)
+
 ## Example
 
 [:zap: Live Preview](https://element-form-builder.now.sh) | [:book: Docs](https://codetrial.github.io/element-form-builder)
