@@ -96,6 +96,9 @@ var FormBuilder = {
       }
     }, [].concat(toConsumableArray(vm.$slots.prepend || []), toConsumableArray(vm.renderFormItems(h) || []), toConsumableArray(vm.$slots.append || [])));
   },
+  created: function created() {
+    this.$emit('input', this.formValues);
+  },
 
 
   methods: {

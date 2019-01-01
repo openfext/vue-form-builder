@@ -74,6 +74,10 @@ export default {
     )
   },
 
+  created () {
+    this.$emit('input', this.formValues)
+  },
+
   methods: {
     mergeValues () {
       const vm = this
