@@ -3,6 +3,10 @@
   "version": "1.0.1",
   "description": "Build element-ui forms with JSON schema.",
   "main": "dist/index.js",
+  "files": [
+    "src",
+    "dist"
+  ],
   "scripts": {
     "build": "node scripts/build.js",
     "test": "yarn test"
