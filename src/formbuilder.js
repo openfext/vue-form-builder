@@ -176,26 +176,26 @@ export default {
 
         children = [checkbox]
       } else if (tag === 'el-radio') {
-        const radios = (detail.items || []).map(rc => {
-          const rcDetail = {
+        const radios = (detail.items || []).map(option => {
+          option = {
             name: detail.name,
-            ...rc
+            ...option
           }
           return h(
             tag,
             {
               attrs: {
-                ...rcDetail
+                ...option
               },
               props: {
                 value,
-                ...rcDetail
+                ...option
               },
               on: {
                 ...modelEvents
               }
             },
-            [rc.text]
+            [option.text]
           )
         })
         children = [...radios]

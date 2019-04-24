@@ -1,5 +1,5 @@
 /**
- * Element form-builder v1.0.0
+ * element-form-builder v1.1.0
  * (c) 2019 Felix Yang
  */
 var _extends = Object.assign || function (target) {
@@ -182,17 +182,17 @@ var FormBuilder = {
 
         children = [checkbox];
       } else if (tag === 'el-radio') {
-        var radios = (detail.items || []).map(function (rc) {
-          var rcDetail = _extends({
+        var radios = (detail.items || []).map(function (option) {
+          option = _extends({
             name: detail.name
-          }, rc);
+          }, option);
           return h(tag, {
-            attrs: _extends({}, rcDetail),
+            attrs: _extends({}, option),
             props: _extends({
               value: value
-            }, rcDetail),
+            }, option),
             on: _extends({}, modelEvents)
-          }, [rc.text]);
+          }, [option.text]);
         });
         children = [].concat(toConsumableArray(radios));
       } else {
