@@ -100,6 +100,25 @@ export default {
       }
     },
 
+    filterAttrs (detail = {}) {
+      const keys = Object.keys(detail)
+      const attrs = {}
+
+      keys.forEach(key => {
+        const value = detail[key]
+
+        if (
+          typeof value === 'number' ||
+          typeof value === 'string' ||
+          typeof value === 'boolean'
+        ) {
+          attrs[key] = value
+        }
+      })
+
+      return attrs
+    },
+
     renderFormItem (h, { tag, item: label = {}, detail = {} }) {
       const vm = this
       const { formValues, size } = vm
@@ -118,7 +137,7 @@ export default {
           tag,
           {
             attrs: {
-              ...detail
+              ...vm.filterAttrs(detail)
             },
             props: {
               value,
@@ -131,7 +150,7 @@ export default {
           (detail.items || []).map(option => {
             return h('el-option', {
               attrs: {
-                ...option
+                ...vm.filterAttrs(option)
               },
               props: {
                 key: option.value,
@@ -146,7 +165,7 @@ export default {
           'el-checkbox-group',
           {
             attrs: {
-              ...detail
+              ...vm.filterAttrs(detail)
             },
             props: {
               value,
@@ -161,7 +180,7 @@ export default {
               'el-checkbox',
               {
                 attrs: {
-                  ...option
+                  ...vm.filterAttrs(option)
                 },
                 props: {
                   key: option.value,
@@ -185,7 +204,7 @@ export default {
             tag,
             {
               attrs: {
-                ...option
+                ...vm.filterAttrs(option)
               },
               props: {
                 value,
@@ -202,7 +221,7 @@ export default {
       } else {
         const input = h(tag || 'el-input', {
           attrs: {
-            ...detail
+            ...vm.filterAttrs(detail)
           },
           props: {
             value,

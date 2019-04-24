@@ -1,5 +1,5 @@
 /**
- * element-form-builder v1.1.0
+ * element-form-builder v1.2.0
  * (c) 2019 Felix Yang
  */
 var _extends = Object.assign || function (target) {
@@ -126,6 +126,22 @@ var FormBuilder = {
 
       return _extends({}, defaultValues, model);
     },
+    filterAttrs: function filterAttrs() {
+      var detail = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      var keys = Object.keys(detail);
+      var attrs = {};
+
+      keys.forEach(function (key) {
+        var value = detail[key];
+
+        if (typeof value === 'number' || typeof value === 'string' || typeof value === 'boolean') {
+          attrs[key] = value;
+        }
+      });
+
+      return attrs;
+    },
     renderFormItem: function renderFormItem(h, _ref2) {
       var tag = _ref2.tag,
           _ref2$item = _ref2.item,
@@ -149,14 +165,14 @@ var FormBuilder = {
 
       if (tag === 'el-select') {
         var select = h(tag, {
-          attrs: _extends({}, detail),
+          attrs: _extends({}, vm.filterAttrs(detail)),
           props: _extends({
             value: value
           }, detail),
           on: _extends({}, modelEvents)
         }, (detail.items || []).map(function (option) {
           return h('el-option', {
-            attrs: _extends({}, option),
+            attrs: _extends({}, vm.filterAttrs(option)),
             props: _extends({
               key: option.value
             }, option)
@@ -165,14 +181,14 @@ var FormBuilder = {
         children = [select];
       } else if (tag === 'el-checkbox') {
         var checkbox = h('el-checkbox-group', {
-          attrs: _extends({}, detail),
+          attrs: _extends({}, vm.filterAttrs(detail)),
           props: _extends({
             value: value
           }, detail),
           on: _extends({}, modelEvents)
         }, (detail.items || []).map(function (option) {
           return h('el-checkbox', {
-            attrs: _extends({}, option),
+            attrs: _extends({}, vm.filterAttrs(option)),
             props: _extends({
               key: option.value,
               label: option.value
@@ -187,7 +203,7 @@ var FormBuilder = {
             name: detail.name
           }, option);
           return h(tag, {
-            attrs: _extends({}, option),
+            attrs: _extends({}, vm.filterAttrs(option)),
             props: _extends({
               value: value
             }, option),
@@ -197,7 +213,7 @@ var FormBuilder = {
         children = [].concat(toConsumableArray(radios));
       } else {
         var input = h(tag || 'el-input', {
-          attrs: _extends({}, detail),
+          attrs: _extends({}, vm.filterAttrs(detail)),
           props: _extends({
             value: value
           }, detail),
