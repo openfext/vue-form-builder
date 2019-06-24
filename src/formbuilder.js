@@ -1,6 +1,8 @@
 export default {
   name: 'ElFormBuilder',
-
+  model: {
+    prop: 'model'
+  },
   props: {
     model: {
       type: Object,
@@ -63,7 +65,7 @@ export default {
         props: {
           model: vm.formValues,
           rules: vm.config.rules,
-          labelWidth: vm.labelWidth
+          ...vm.$attr
         }
       },
       [

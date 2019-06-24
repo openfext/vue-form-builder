@@ -28,7 +28,9 @@ var toConsumableArray = function (arr) {
 
 var FormBuilder = {
   name: 'ElFormBuilder',
-
+  model: {
+    prop: 'model'
+  },
   props: {
     model: {
       type: Object,
@@ -89,11 +91,10 @@ var FormBuilder = {
     var vm = this;
 
     return h('el-form', {
-      props: {
+      props: _extends({
         model: vm.formValues,
-        rules: vm.config.rules,
-        labelWidth: vm.labelWidth
-      }
+        rules: vm.config.rules
+      }, vm.$attr)
     }, [].concat(toConsumableArray(vm.$slots.prepend || []), toConsumableArray(vm.renderFormItems(h) || []), toConsumableArray(vm.$slots.append || [])));
   },
   created: function created() {
