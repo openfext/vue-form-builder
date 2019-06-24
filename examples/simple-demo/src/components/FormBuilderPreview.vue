@@ -7,7 +7,7 @@
           <a target="_blank" href="https://codetrial.github.io">@Codetrial</a>
         </div>
       </div>
-      <el-row :gutter="24">
+      <el-row :gutter="10">
         <el-col :span="8">
           <el-form-builder :config="formConfig" v-model="formValues" label-width="80px">
             <div slot="append" class="submit-item">
@@ -15,11 +15,14 @@
             </div>
           </el-form-builder>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="6">
           <el-input v-model="config.elements" type="textarea" rows="24"></el-input>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="5">
           <el-input v-model="config.rules" type="textarea" rows="24"></el-input>
+        </el-col>
+        <el-col :span="5">
+          <el-input v-model="config.model" type="textarea" rows="24"></el-input>
         </el-col>
       </el-row>
     </el-card>
@@ -41,15 +44,22 @@ export default {
     config: {
       deep: true,
       immediate: true,
-      handler({ rules, elements }) {
+      handler({ rules, elements, model }) {
         try {
           this.formConfig = {
             rules: JSON.parse(rules),
             elements: JSON.parse(elements)
           }
+          this.formValues = JSON.parse(model)
         } catch (err) {
           console.error('[JSON Parse Error] -> ', err.message)
         }
+      }
+    },
+    formValues: {
+      deep: true,
+      handler() {
+        this.config.model = JSON.stringify(this.formValues, null, 4)
       }
     }
   },
@@ -58,14 +68,7 @@ export default {
     return {
       showResultModal: false,
 
-      formValues: {
-        title: '',
-        desc: '',
-        date: null,
-        area: [],
-        subject: [],
-        tag: []
-      },
+      formValues: {},
 
       formConfig: {
         rules: {},
@@ -73,6 +76,18 @@ export default {
       },
 
       config: {
+        model: JSON.stringify(
+          {
+            title: '',
+            desc: '',
+            date: null,
+            area: '',
+            subject: [],
+            tag: []
+          },
+          null,
+          4
+        ),
         rules: JSON.stringify(
           {
             title: [
