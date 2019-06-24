@@ -78,8 +78,8 @@ export default {
       config: {
         model: JSON.stringify(
           {
-            title: '',
-            desc: '',
+            title: 'override defaultValue',
+            desc: 'balabala',
             date: null,
             area: '',
             subject: [],
@@ -92,7 +92,7 @@ export default {
           {
             title: [
               { required: true, message: '请输入名称' },
-              { max: 5, message: '最多 5 个字符' }
+              { max: 25, message: '最多 25 个字符' }
             ]
           },
           null,
