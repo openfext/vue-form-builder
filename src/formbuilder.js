@@ -18,14 +18,6 @@ export default {
           elements: []
         }
       }
-    },
-    size: {
-      type: String,
-      default: 'medium'
-    },
-    labelWidth: {
-      type: String,
-      default: '150px'
     }
   },
 
@@ -65,7 +57,7 @@ export default {
         props: {
           model: vm.formValues,
           rules: vm.config.rules,
-          ...vm.$attr
+          ...vm.$attrs
         }
       },
       [

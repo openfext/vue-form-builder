@@ -7,9 +7,15 @@
           <a target="_blank" href="https://codetrial.github.io">@Codetrial</a>
         </div>
       </div>
-      <el-row :gutter="10">
+      <el-row :gutter="4">
         <el-col :span="8">
-          <el-form-builder :config="formConfig" v-model="formValues" label-width="80px">
+          <el-form-builder
+            :config="formConfig"
+            v-model="formValues"
+            label-width="80px"
+            inline
+            size="mini"
+          >
             <div slot="append" class="submit-item">
               <el-button type="primary" @click="showResultModal = true">提交</el-button>
             </div>
@@ -160,9 +166,7 @@ export default {
                   { text: '历史', label: '1' },
                   { text: '战争', label: '2' },
                   { text: '科幻', label: '3' },
-                  { text: '爱情', label: '4' },
-                  { text: '文艺', label: '5' },
-                  { text: '生活', label: '6' }
+                  { text: '爱情', label: '4' }
                 ]
               }
             },

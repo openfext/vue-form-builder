@@ -46,14 +46,6 @@ var FormBuilder = {
           elements: []
         };
       }
-    },
-    size: {
-      type: String,
-      default: 'medium'
-    },
-    labelWidth: {
-      type: String,
-      default: '150px'
     }
   },
 
@@ -94,7 +86,7 @@ var FormBuilder = {
       props: _extends({
         model: vm.formValues,
         rules: vm.config.rules
-      }, vm.$attr)
+      }, vm.$attrs)
     }, [].concat(toConsumableArray(vm.$slots.prepend || []), toConsumableArray(vm.renderFormItems(h) || []), toConsumableArray(vm.$slots.append || [])));
   },
   created: function created() {
