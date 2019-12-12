@@ -218,6 +218,20 @@ export default {
           )
         })
         children = [...radios]
+      } else if (tag === 'el-form-builder') {
+        const input = h(tag, {
+          attrs: {
+            ...vm.filterAttrs(detail)
+          },
+          props: {
+            model: value,
+            ...detail
+          },
+          on: {
+            ...modelEvents
+          }
+        })
+        children = [input]
       } else {
         const input = h(tag || 'el-input', {
           attrs: {
