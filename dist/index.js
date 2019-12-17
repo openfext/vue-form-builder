@@ -211,15 +211,24 @@ var FormBuilder = {
           }, [option.text]);
         });
         children = [].concat(toConsumableArray(radios));
+      } else if (tag === 'el-form-builder') {
+        var input = h(tag, {
+          attrs: _extends({}, vm.filterAttrs(detail)),
+          props: _extends({
+            model: value
+          }, detail),
+          on: _extends({}, modelEvents)
+        });
+        children = [input];
       } else {
-        var input = h(tag || 'el-input', {
+        var _input = h(tag || 'el-input', {
           attrs: _extends({}, vm.filterAttrs(detail)),
           props: _extends({
             value: value
           }, detail),
           on: _extends({}, modelEvents)
         });
-        children = [input];
+        children = [_input];
       }
 
       return h('el-form-item', {
