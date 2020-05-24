@@ -1,6 +1,6 @@
 {
   "name": "element-form-builder",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Build powerful element-ui form with JSON schema.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
