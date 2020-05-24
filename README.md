@@ -4,94 +4,132 @@
 [![License](https://img.shields.io/npm/l/element-form-builder.svg)](https://www.npmjs.com/package/element-form-builder)
 [![Dependencies](https://img.shields.io/david/codetrial/element-form-builder.svg)](https://www.npmjs.com/package/element-form-builder)
 
-Build element-ui forms with JSON schema.
-
-:us: English | [:cn: 简体中文](README.zh-CN.md)
+Build powerful vue form with JSON schema and composition api. Any custom input components and popular ui frameworks such as Element UI are supported.
 
 ## Example
 
-[:zap: Live Preview](https://element-form-builder.now.sh) | [:book: Docs](https://codetrial.github.io/element-form-builder)
+[:zap: Live Preview](https://codetrial.github.io/element-form-builder) | [:book: Docs](https://codetrial.github.io/element-form-builder)
 
 ![Screen Capture](.github/preview.gif)
 
+## Core Features
+
+- :tv: **Powerful** - use composition api to manage complex form state
+- :camera: **Flexible** - support any custom input components
+- :watch: **Adaptable** - different ui frameworks can be used out of the box through the adapters
+- :radio: **Reliable** - has been used in multiple applications in the production environment
+
 ## Quick Start
 
-First you need to have an element-ui project. If not, it is recommended to create one quickly using the preset below.
-
-```bash
-vue create --preset codetrial/vue-cli-plugin-element your-project
-```
+First you need vue application like [Vue Admin Next](https://github.com/openfext/vue-admin-next).
 
 ### Install
 
 ```bash
-yarn add element-form-builder
-# OR
 npm i element-form-builder
 ```
 
-### Registry
+### Registration
+
+#### Global Registration
 
 ```javascript
-import FormBuilder from 'element-form-builder'
+import FormBuilder from 'element-form-builder';
+import ElFormAdaptor from 'element-form-builder/lib/adaptor/element';
 
-Vue.use(FormBuilder)
+Vue.use(FormBuilder); // form-builder
+Vue.use(ElFormAdaptor); // el-form-adaptor
 ```
 
-### Witness the miracle moment
+#### Local Registration
+
+Use the factory method based on the specified component:
+
+```javascript
+import { createFormBuilder } from 'element-form-builder';
+import { ElFormAdaptor } from 'element-form-builder/lib/adaptor/element';
+import AwesomeFormComponents from 'path/to/awesome/components';
+
+export default {
+  name: 'awesome-form'
+
+  components: {
+    FormBuilder: createFormBuilder({
+      components: {
+        ElFormAdaptor,
+
+        ...AwesomeFormComponents
+      }
+    })
+  },
+}
+```
+
+### Build Form
 
 Vue template:
 
 ```html
-<el-form-builder :config="formConfig" v-model="formValues" label-width="80px">
-</el-form-builder>
+<el-form>
+  <form-builder :form="form" :config="formConfig"></form-builder>
+</el-form>
 ```
 
 Vue component:
 
 ```javascript
+import { useForm } from '@fext/vue-use';
+
 export default {
+  components: {
+    FormBuilder: createFormBuilder({
+      components: {
+        ElFormAdaptor
+      }
+    })
+  },
+
+  setup() {
+    const form = useForm();
+
+    return {
+      form
+    };
+  },
+
   data() {
     return {
-      formValues: {
-        title: 'Some Awesome Title'
-      },
-
-      formConfig: {
-        rules: {
-          title: [{ required: true, message: 'Please enter the title' }]
-        },
-        elements: [
-          {
-            tag: 'el-input',
-            item: {
-              label: 'Title'
-            },
-            detail: {
-              name: 'title'
+      formConfig: [
+        {
+          component: 'div',
+          fields: [
+            {
+              name: 'comment',
+              component: 'ElFormAdaptor',
+              label: 'Normal Input',
+              rules: {
+                required: true
+              },
+              props: {
+                placeholder: 'Render with el-input component'
+              }
             }
-          }
-        ]
-      }
-    }
+          ]
+        }
+      ]
+    };
   }
-}
+};
 ```
 
-## Core Features
+## Docs
 
-- :camera: Any Component
-- :tv: Form Validation
-- :watch: Form Model
-- :radio: Custom Slot
-
-## Contributing
-
-Looking forward to your pull requests.
+TODO
 
 ## Built With
 
 - [Vue.js](https://github.com/vuejs/vue)
+- [Vue Use](https://github.com/openfext/vue-use)
 - [ElementUI](https://github.com/ElemeFE/element)
 
 ## License
