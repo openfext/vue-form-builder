@@ -68,7 +68,7 @@ export const BasicUsage = () => ({
           </el-col>
           <el-col :span="12" :xs="24">
             <el-card>
-              <el-input type="textarea" v-model="formConfigJSON" rows="50" />
+              <el-input type="textarea" v-model="formConfigJSON" rows="35" />
             </el-card>
           </el-col>
         </el-row>
@@ -175,6 +175,17 @@ export const BasicUsage = () => ({
               {
                 name: 'actor',
                 component: 'ExampleActorComplex'
+              },
+              {
+                name: 'date',
+                component: 'ElFormAdaptor',
+                label: '发行日期',
+                extend: {
+                  component: 'el-date-picker'
+                },
+                props: {
+                  placeholder: '请通过日期选择器'
+                }
               },
               {
                 name: 'description',
