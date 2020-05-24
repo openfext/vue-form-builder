@@ -9,7 +9,7 @@ Build powerful vue form with JSON schema and composition api. Any custom input c
 
 ## Example
 
-[:zap: Live Preview](https://codetrial.github.io/element-form-builder) | [:book: Docs](https://codetrial.github.io/element-form-builder)
+[:zap: Live Preview](https://openfext.github.io/vue-admin-next/#/form/form-builder) | [:book: Storybook](https://codetrial.github.io/element-form-builder)
 
 ![Screen Capture](https://github.com/codetrial/element-form-builder/raw/develop/.github/preview.gif)
 
