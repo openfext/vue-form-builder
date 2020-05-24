@@ -23,8 +23,7 @@ const commonExternal = function(id) {
   return (
     /^vue/i.test(id) ||
     /^@vue\/composition-api/i.test(id) ||
-    /^lodash/i.test(id) ||
-    /^axios/i.test(id) ||
+    /^@fext\/vue-use/i.test(id) ||
     /^@babel\/runtime-corejs3/i.test(id)
   );
 };

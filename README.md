@@ -11,7 +11,7 @@ Build powerful vue form with JSON schema and composition api. Any custom input c
 
 [:zap: Live Preview](https://codetrial.github.io/element-form-builder) | [:book: Docs](https://codetrial.github.io/element-form-builder)
 
-![Screen Capture](.github/preview.gif)
+![Screen Capture](https://github.com/codetrial/element-form-builder/raw/develop/.github/preview.gif)
 
 ## Core Features
 

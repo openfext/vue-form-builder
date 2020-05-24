@@ -1,6 +1,6 @@
 {
   "name": "element-form-builder",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Build powerful element-ui form with JSON schema.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -31,11 +31,14 @@
   "keywords": [
     "vue",
     "use",
+    "vue-use",
     "composition",
-    "element",
-    "form",
-    "builder",
-    "json"
+    "vue-composition",
+    "vue-composition-api",
+    "vue-form",
+    "json-form",
+    "formbuilder",
+    "form-builder"
   ],
   "author": "felixpy.1993@gmail.com",
   "license": "MIT",
@@ -45,7 +48,8 @@
     "@vue/composition-api": "^0.3.4",
     "deepmerge": "^4.2.2",
     "vee-validate": "^3.0.11",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-runtime-helpers": "^1.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
