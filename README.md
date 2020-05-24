@@ -21,7 +21,7 @@ Build powerful vue form with JSON schema and composition api. Any custom input c
 
 ## Quick Start
 
-First you need vue application like [Vue Admin Next](https://github.com/openfext/vue-admin-next).
+First you need a vue application like [Vue Admin Next](https://github.com/openfext/vue-admin-next).
 
 ### Install
 
