@@ -1,8 +1,8 @@
 # element-form-builder
 
+[![codecov](https://codecov.io/gh/codetrial/element-form-builder/branch/develop/graph/badge.svg)](https://codecov.io/gh/codetrial/element-form-builder)
 [![Version](https://img.shields.io/npm/v/element-form-builder.svg)](https://www.npmjs.com/package/element-form-builder)
 [![License](https://img.shields.io/npm/l/element-form-builder.svg)](https://www.npmjs.com/package/element-form-builder)
-[![Dependencies](https://img.shields.io/david/codetrial/element-form-builder.svg)](https://www.npmjs.com/package/element-form-builder)
 
 Build powerful vue form with JSON schema and composition api. Any custom input components and popular ui frameworks such as Element UI are supported.
 
