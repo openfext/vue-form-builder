@@ -68,7 +68,7 @@ export const BasicUsage = () => ({
           </el-col>
           <el-col :span="12" :xs="24">
             <el-card>
-              <el-input type="textarea" v-model="formConfigJSON" rows="35" />
+              <el-input type="textarea" v-model="formConfigJSON" rows="45" />
             </el-card>
           </el-col>
         </el-row>
