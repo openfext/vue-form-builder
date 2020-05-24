@@ -6,7 +6,9 @@ import RollupVue from 'rollup-plugin-vue';
 import pkg from './package.json';
 
 const commonPlugins = [
-  RollupVue(),
+  RollupVue({
+    needMap: false
+  }),
   RollupBabel({
     runtimeHelpers: true,
     extensions: ['.js', '.vue'],
