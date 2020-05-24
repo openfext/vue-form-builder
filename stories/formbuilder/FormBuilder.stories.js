@@ -39,12 +39,11 @@ Vue.component('ValidationObserver', ValidationObserver);
 
 export const BasicUsage = () => ({
   template: `
-    <div>
+    <div class="form-builder-example">
       <validation-observer ref="observer" v-slot="{ invalid }">
         <el-row :gutter="10">
           <el-col :span="12" :xs="24">
             <el-form
-              class="form-builder-example"
               label-width="80px"
               v-loading="loading"
             >
@@ -67,7 +66,7 @@ export const BasicUsage = () => ({
             </el-form>
           </el-col>
           <el-col :span="12" :xs="24">
-            <el-card>
+            <el-card header="表单配置">
               <el-input type="textarea" v-model="formConfigJSON" rows="45" />
             </el-card>
           </el-col>
@@ -117,7 +116,11 @@ export const BasicUsage = () => ({
       metadata: {},
 
       formShares: {
-        size: 'medium'
+        size: 'medium',
+
+        props: {
+          clearable: true
+        }
       },
 
       formConfig: [],

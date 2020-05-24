@@ -1,5 +1,9 @@
 .form-builder-example {
   .el-card {
     margin-bottom: 15px;
+
+    .el-card__header {
+      padding: 10px 20px;
+    }
   }
 }
