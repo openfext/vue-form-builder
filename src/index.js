@@ -1,7 +1,14 @@
-import FormBuilder, { createFormBuilder } from './components/FormBuilder.vue';
+import FormBuilder from './components/FormBuilder.vue';
 
-const install = function installFormBuilder(Vue) {
+const install = function(Vue) {
   Vue.component('form-builder', FormBuilder);
+};
+
+const createFormBuilder = function(options = {}) {
+  return {
+    ...FormBuilder,
+    ...options
+  };
 };
 
 export { FormBuilder, createFormBuilder };

@@ -116,12 +116,5 @@ const options = {
   }
 };
 
-export function createFormBuilder({ components = {} } = {}) {
-  return {
-    ...options,
-    components
-  };
-}
-
 export default options;
 </script>
