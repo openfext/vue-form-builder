@@ -4,6 +4,7 @@
       label="节目类型"
       size="default"
       :required="isRequired"
+      :validateStatus="errors.length ? 'error' : null"
       :help="errors[0]"
       :extra="tip"
     >

@@ -3,6 +3,7 @@
     <a-form-item
       :size="size"
       :required="isRequired"
+      :validateStatus="errors.length ? 'error' : null"
       :help="errors[0]"
       :extra="tip"
     >

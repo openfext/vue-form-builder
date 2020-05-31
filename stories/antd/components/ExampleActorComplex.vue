@@ -5,6 +5,7 @@
         label="人物"
         size="default"
         :required="isRequired"
+        :validateStatus="errors.length ? 'error' : null"
         :help="errors[0]"
       >
         <a-input
@@ -18,7 +19,13 @@
       </a-form-item>
     </validation-provider>
     <validation-provider :rules="rules" v-slot="{ errors }">
-      <a-form-item size="default" label=" " :help="errors[0]" :extra="tip">
+      <a-form-item
+        size="default"
+        label=" "
+        :validateStatus="errors.length ? 'error' : null"
+        :help="errors[0]"
+        :extra="tip"
+      >
         <a-input
           allowClear
           v-model="actor.protagonist"
