@@ -4,6 +4,7 @@ import { mount } from '@vue/test-utils';
 import { useForm, useFormElement } from '@fext/vue-use';
 import FormBuilder from 'src';
 import ElFormAdatpor from 'src/el-form-adaptor';
+import ViewFormAdatpor from 'src/view-form-adaptor';
 
 const TestComponent = {
   template: `<div>
@@ -37,6 +38,7 @@ beforeAll(() => {
   Vue.use(VueCompositionAPI);
   Vue.use(FormBuilder);
   Vue.use(ElFormAdatpor);
+  Vue.use(ViewFormAdatpor);
 });
 
 describe('vue plugin', () => {
@@ -48,6 +50,12 @@ describe('vue plugin', () => {
 
   test('use element form adaptor', () => {
     const component = Vue.component('el-form-adaptor');
+
+    expect(component).toBeDefined();
+  });
+
+  test('use view form adaptor', () => {
+    const component = Vue.component('view-form-adaptor');
 
     expect(component).toBeDefined();
   });
