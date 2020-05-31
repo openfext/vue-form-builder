@@ -104,6 +104,31 @@ const config = [
     ],
     plugins: [...commonPlugins],
     external: commonExternal
+  },
+
+  // ant-design-form-adaptor
+  {
+    input: 'src/ant-form-adaptor.js',
+    output: [
+      {
+        file: 'lib/adaptor/antd.js',
+        format: 'cjs',
+        exports: 'named'
+      }
+    ],
+    plugins: [...commonPlugins],
+    external: commonExternal
+  },
+  {
+    input: 'src/ant-form-adaptor.js',
+    output: [
+      {
+        file: 'lib/adaptor/antd.esm.js',
+        format: 'esm'
+      }
+    ],
+    plugins: [...commonPlugins],
+    external: commonExternal
   }
 ];
 
