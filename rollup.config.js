@@ -56,7 +56,7 @@ const config = [
     external: commonExternal
   },
 
-  // element-form-adaptor
+  // element-ui-form-adaptor
   {
     input: 'src/el-form-adaptor.js',
     output: [
@@ -74,6 +74,31 @@ const config = [
     output: [
       {
         file: 'lib/adaptor/element.esm.js',
+        format: 'esm'
+      }
+    ],
+    plugins: [...commonPlugins],
+    external: commonExternal
+  },
+
+  // view-ui-form-adaptor
+  {
+    input: 'src/view-form-adaptor.js',
+    output: [
+      {
+        file: 'lib/adaptor/view.js',
+        format: 'cjs',
+        exports: 'named'
+      }
+    ],
+    plugins: [...commonPlugins],
+    external: commonExternal
+  },
+  {
+    input: 'src/view-form-adaptor.js',
+    output: [
+      {
+        file: 'lib/adaptor/view.esm.js',
         format: 'esm'
       }
     ],

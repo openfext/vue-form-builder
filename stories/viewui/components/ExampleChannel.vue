@@ -1,31 +1,29 @@
 <template>
   <validation-provider :rules="rules" v-slot="{ errors }">
-    <el-form-item
+    <FormItem
       label="频道"
       size="medium"
       :required="isRequired"
       :error="errors[0]"
     >
-      <el-select
+      <Select
         clearable
         filterable
-        :disabled="!!formValues.exampleId"
-        :filter-method="filterChannel"
         :value="localValue"
         @input="updateLocalValue"
         placeholder="请输入关键词进行搜索"
       >
-        <el-option
+        <Option
           v-for="ch in showChannels"
           :key="ch.id"
           :value="ch.id"
           :label="ch.name"
         >
           <span>{{ ch.name }} - {{ ch.id }}</span>
-        </el-option>
-      </el-select>
-      <div class="el-form-item__tip" v-if="tip">{{ tip }}</div>
-    </el-form-item>
+        </Option>
+      </Select>
+      <div class="ivu-form-item-tip" v-if="tip">{{ tip }}</div>
+    </FormItem>
   </validation-provider>
 </template>
 

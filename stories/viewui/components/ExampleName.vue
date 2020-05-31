@@ -1,0 +1,82 @@
+<template>
+  <validation-provider :rules="rules" v-slot="{ errors }">
+    <FormItem
+      label="标题"
+      size="medium"
+      :required="isRequired"
+      :error="errors[0]"
+    >
+      <Input
+        clearable
+        :value="localValue"
+        @input="updateLocalValue"
+        type="text"
+        placeholder="标题"
+      >
+        <template v-slot:append>
+          <Tooltip content="通过事件触发整体表单操作" placement="top">
+            <Button icon="md-call" @click="doSomething">触发表单事件</Button>
+          </Tooltip>
+        </template>
+      </Input>
+      <div class="ivu-form-item-tip" v-if="tip">{{ tip }}</div>
+    </FormItem>
+  </validation-provider>
+</template>
+
+<style lang="scss" scoped></style>
+
+<script>
+import { useFormElement } from '@fext/vue-use';
+
+export default {
+  name: 'example-name',
+
+  props: {
+    name: String,
+    tip: String,
+    tooltip: String,
+    hide: Boolean,
+    rules: {
+      type: [String, Object]
+    },
+    extend: Object,
+    metadata: Object,
+    value: {
+      required: false
+    },
+    formValues: {
+      type: Object,
+      required: false
+    }
+  },
+
+  setup(props, context) {
+    const {
+      dirty,
+      isRequired,
+      localValue,
+      setInitialValue,
+      updateLocalValue
+    } = useFormElement(props, context);
+
+    return {
+      dirty,
+      isRequired,
+      localValue,
+      setInitialValue,
+      updateLocalValue
+    };
+  },
+
+  data() {
+    return {};
+  },
+
+  methods: {
+    doSomething(evt) {
+      this.$emit('command', 'doSomething', { id: 123456 });
+    }
+  }
+};
+</script>

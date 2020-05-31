@@ -1,6 +1,6 @@
 {
   "name": "@fext/vue-form-builder",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "Build powerful vue form with JSON schema and composition api.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -99,6 +99,7 @@
     "sass": "^1.24.2",
     "sass-loader": "^8.0.0",
     "vee-validate": "^3.3.0",
+    "view-design": "^4.2.0",
     "vue": "^2.6.11",
     "vue-jest": "^3.0.5",
     "vue-loader": "^15.8.3"

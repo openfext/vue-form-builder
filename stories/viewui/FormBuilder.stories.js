@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueCompositionApi from '@vue/composition-api';
 import { useForm, useLoading } from '@fext/vue-use';
-import ElementUI from 'element-ui';
+import ViewUI from 'view-design';
 import {
   ValidationProvider,
   ValidationObserver,
@@ -10,14 +10,14 @@ import {
 
 import markdown from './FormBuilder.md';
 import { createFormBuilder } from '@/src';
-import { ElFormAdaptor } from '@/src/el-form-adaptor';
+import { ViewFormAdaptor } from '@/src/view-form-adaptor';
 import ExampleComponents from './components';
 
-import 'element-ui/lib/theme-chalk/index.css';
+import 'view-design/dist/styles/iview.css';
 import './style.scss';
 
 Vue.use(VueCompositionApi);
-Vue.use(ElementUI);
+Vue.use(ViewUI);
 
 localize({
   zh: {
@@ -41,15 +41,13 @@ export const BasicUsage = () => ({
   template: `
     <div class="form-builder-example">
       <validation-observer ref="observer" v-slot="{ invalid }">
-        <el-row :gutter="10">
-          <el-col :span="12" :xs="24">
-            <el-form
-              label-width="80px"
-              v-loading="loading"
-            >
-              <el-card v-if="!formConfig.length">
+        <Row :gutter="10">
+          <Col :span="12">
+            <Form :label-width="80">
+              <Spin fix size="large" v-if="loading" />
+              <Card v-if="!formConfig.length">
                 <div class="placeholder"></div>
-              </el-card>
+              </Card>
               <form-builder
                 @command="handleCommand"
                 :form="form"
@@ -59,32 +57,32 @@ export const BasicUsage = () => ({
               ></form-builder>
 
               <div class="form-action">
-                <el-button :disabled="loading" type="primary" @click="save">
+                <Button :disabled="loading" type="primary" @click="save">
                   提交
-                </el-button>
+                </Button>
               </div>
-            </el-form>
-          </el-col>
-          <el-col :span="12" :xs="24">
-            <el-card header="表单配置">
-              <el-input type="textarea" v-model="formConfigJSON" rows="45" />
-            </el-card>
-          </el-col>
-        </el-row>
+            </Form>
+          </Col>
+          <Col :span="12">
+            <Card title="表单配置">
+              <Input type="textarea" v-model="formConfigJSON" :rows="45" />
+            </Card>
+          </Col>
+        </Row>
       </validation-observer>
-      <el-dialog title="提交结果" :visible.sync="showResultModal" width="80%">
+      <Modal title="提交结果" v-model="showResultModal" width="80%">
         <pre>{{ JSON.stringify(formValues, null, 4) }}</pre>
-        <span slot="footer" class="dialog-footer">
-          <el-button type="primary" @click="showResultModal = false">确 定</el-button>
+        <span slot="footer">
+          <Button type="primary" @click="showResultModal = false">确 定</Button>
         </span>
-      </el-dialog>
+      </Modal>
     </div>
   `,
 
   components: {
     FormBuilder: createFormBuilder({
       components: {
-        ElFormAdaptor,
+        ViewFormAdaptor,
 
         ...ExampleComponents
       }
@@ -128,9 +126,9 @@ export const BasicUsage = () => ({
       formConfigJSON: JSON.stringify(
         [
           {
-            component: 'el-card',
+            component: 'Card',
             props: {
-              header: '基础信息'
+              title: '基础信息'
             },
             fields: [
               {
@@ -149,7 +147,7 @@ export const BasicUsage = () => ({
               },
               {
                 name: 'comment',
-                component: 'ElFormAdaptor',
+                component: 'ViewFormAdaptor',
                 label: '评语',
                 tip: '一句话评价（使用 FormAdaptor 的自定义字段）',
                 tooltip: '精彩点评',
@@ -165,9 +163,9 @@ export const BasicUsage = () => ({
             ]
           },
           {
-            component: 'el-card',
+            component: 'Card',
             props: {
-              header: '高级信息'
+              title: '高级信息'
             },
             fields: [
               {
@@ -181,10 +179,10 @@ export const BasicUsage = () => ({
               },
               {
                 name: 'date',
-                component: 'ElFormAdaptor',
+                component: 'ViewFormAdaptor',
                 label: '发行日期',
                 extend: {
-                  component: 'el-date-picker'
+                  component: 'DatePicker'
                 },
                 props: {
                   placeholder: '请通过日期选择器'
@@ -192,7 +190,7 @@ export const BasicUsage = () => ({
               },
               {
                 name: 'description',
-                component: 'ElFormAdaptor',
+                component: 'ViewFormAdaptor',
                 label: '描述',
                 tip: '剧情描述（使用 FormAdaptor 的自定义字段）',
                 rules: {
@@ -326,7 +324,7 @@ BasicUsage.story = {
 // =============== End of Basic Usage =============== //
 
 export default {
-  title: 'UI|FormBuilder',
+  title: 'FormBuilder|View UI',
   parameters: {
     notes: {
       markdown
