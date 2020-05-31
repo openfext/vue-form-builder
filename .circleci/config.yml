@@ -21,7 +21,7 @@ jobs:
 workflows:
   test-flow:
     jobs:
-      - unit-test
+      - unit-test:
         filters:
           branches:
             ignore:
