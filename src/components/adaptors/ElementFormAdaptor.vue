@@ -1,11 +1,6 @@
 <template>
   <validation-provider :rules="rules" v-slot="{ errors }">
-    <el-form-item
-      :label="label"
-      :size="size"
-      :required="isRequired"
-      :error="errors[0]"
-    >
+    <el-form-item :size="size" :required="isRequired" :error="errors[0]">
       <template v-slot:label>
         <span>{{ label }}</span>
         <span v-if="tooltip">

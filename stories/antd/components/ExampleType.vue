@@ -1,18 +1,18 @@
 <template>
   <validation-provider :rules="rules" v-slot="{ errors }">
-    <FormItem
+    <a-form-item
       label="节目类型"
       size="default"
       :required="isRequired"
-      :error="errors[0]"
+      :help="errors[0]"
+      :extra="tip"
     >
-      <RadioGroup :value="localValue" @input="updateLocalValue">
-        <Radio v-for="item in items" :key="item.value" :label="item.value">
+      <a-radio-group :value="localValue" @input="updateLocalValue">
+        <a-radio v-for="item in items" :key="item.value" :value="item.value">
           {{ item.text }}
-        </Radio>
-      </RadioGroup>
-      <div class="ivu-form-item-tip" v-if="tip">{{ tip }}</div>
-    </FormItem>
+        </a-radio>
+      </a-radio-group>
+    </a-form-item>
   </validation-provider>
 </template>
 

@@ -2,7 +2,7 @@
   <validation-provider :rules="rules" v-slot="{ errors }">
     <FormItem
       label="标题"
-      size="medium"
+      size="default"
       :required="isRequired"
       :error="errors[0]"
     >

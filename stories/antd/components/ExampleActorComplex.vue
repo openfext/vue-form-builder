@@ -1,29 +1,33 @@
 <template>
   <div>
     <validation-provider :rules="rules" v-slot="{ errors }">
-      <FormItem label="人物" :required="isRequired" :error="errors[0]">
-        <Input
-          clearable
+      <a-form-item
+        label="人物"
+        size="default"
+        :required="isRequired"
+        :help="errors[0]"
+      >
+        <a-input
+          allowClear
           v-model="actor.director"
           type="text"
           placeholder="请填写导演姓名"
         >
-          <template slot="prepend">导演</template>
-        </Input>
-      </FormItem>
+          <template slot="addonBefore">导演</template>
+        </a-input>
+      </a-form-item>
     </validation-provider>
     <validation-provider :rules="rules" v-slot="{ errors }">
-      <FormItem size="default" :error="errors[0]">
-        <Input
-          clearable
+      <a-form-item size="default" label=" " :help="errors[0]" :extra="tip">
+        <a-input
+          allowClear
           v-model="actor.protagonist"
           type="text"
           placeholder="请填写主演姓名"
         >
-          <template slot="prepend">主演</template>
-        </Input>
-        <div class="ivu-form-item-tip" v-if="tip">{{ tip }}</div>
-      </FormItem>
+          <template slot="addonBefore">主演</template>
+        </a-input>
+      </a-form-item>
     </validation-provider>
   </div>
 </template>

@@ -1,17 +1,17 @@
 <template>
   <validation-provider :rules="rules" v-slot="{ errors }">
-    <FormItem
-      :label="label"
+    <a-form-item
       :size="size"
       :required="isRequired"
-      :error="errors[0]"
+      :help="errors[0]"
+      :extra="tip"
     >
       <template v-slot:label>
         <span>{{ label }}</span>
-        <span v-if="tooltip">
-          <Tooltip :content="tooltip" placement="top">
-            <Icon type="md-help-circle"></Icon>
-          </Tooltip>
+        <span v-if="true">
+          <a-tooltip :title="tooltip" placement="top">
+            <a-icon type="question-circle" />
+          </a-tooltip>
         </span>
       </template>
       <component
@@ -19,61 +19,57 @@
         :is="component"
         v-bind="props"
         :value="localValue"
-        @input="updateLocalValue"
+        @change="updateAntLocalValue"
       >
-        <Option v-for="item in items" :key="item.value" :value="item.value">
+        <a-select-option
+          v-for="item in items"
+          :key="item.value"
+          :value="item.value"
+        >
           {{ item.text }}
-        </Option>
+        </a-select-option>
       </component>
       <component
         v-else-if="isRadio"
         :is="component"
         v-bind="props"
         :value="localValue"
-        @input="updateLocalValue"
+        @change="updateAntLocalValue"
       >
-        <Radio v-for="item in items" :key="item.value" :label="item.value">
+        <a-radio v-for="item in items" :key="item.value" :value="item.value">
           {{ item.text }}
-        </Radio>
+        </a-radio>
       </component>
       <component
         v-else-if="isCheckbox"
         :is="component"
         v-bind="props"
         :value="localValue"
-        @input="updateLocalValue"
+        @change="updateAntLocalValue"
       >
-        <Checkbox v-for="item in items" :key="item.value" :label="item.value">
+        <a-checkbox v-for="item in items" :key="item.value" :value="item.value">
           {{ item.text }}
-        </Checkbox>
+        </a-checkbox>
       </component>
       <component
         v-else
         :is="component"
         v-bind="props"
         :value="localValue"
-        @input="updateLocalValue"
+        @change="updateAntLocalValue"
       >
       </component>
-      <div class="ivu-form-item-tip" v-if="tip">{{ tip }}</div>
-    </FormItem>
+    </a-form-item>
   </validation-provider>
 </template>
 
-<style lang="scss">
-.ivu-form-item-tip {
-  font-size: 12px;
-  line-height: 12px;
-  padding: 10px 0 5px 0;
-  color: #737373;
-}
-</style>
+<style lang="scss"></style>
 
 <script>
 import { useFormElement } from '@fext/vue-use';
 
 export default {
-  name: 'view-form-adaptor',
+  name: 'ant-form-adaptor',
 
   props: {
     tip: String,
@@ -145,11 +141,11 @@ export default {
 
   computed: {
     component() {
-      return this.extend.component || 'Input';
+      return this.extend.component || 'a-input';
     },
 
     isSelect() {
-      return this.component === 'Select';
+      return this.component === 'a-select';
     },
 
     isMultipleSelect() {
@@ -157,11 +153,11 @@ export default {
     },
 
     isRadio() {
-      return this.component === 'RadioGroup';
+      return this.component === 'a-radio-group';
     },
 
     isCheckbox() {
-      return this.component === 'CheckboxGroup';
+      return this.component === 'a-checkbox-group';
     }
   },
 
@@ -171,6 +167,16 @@ export default {
     if (localValue == null) {
       if (isMultipleSelect || isCheckbox) {
         this.setInitialValue([]);
+      }
+    }
+  },
+
+  methods: {
+    updateAntLocalValue(source) {
+      if (source.target) {
+        this.updateLocalValue(source.target.value);
+      } else {
+        this.updateLocalValue(source);
       }
     }
   }

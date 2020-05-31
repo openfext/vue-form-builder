@@ -114,7 +114,7 @@ export const BasicUsage = () => ({
       metadata: {},
 
       formShares: {
-        size: 'medium',
+        size: 'default',
 
         props: {
           clearable: true

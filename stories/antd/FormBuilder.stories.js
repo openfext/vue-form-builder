@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueCompositionApi from '@vue/composition-api';
 import { useForm, useLoading } from '@fext/vue-use';
-import ElementUI from 'element-ui';
+import Antd from 'ant-design-vue';
 import {
   ValidationProvider,
   ValidationObserver,
@@ -10,14 +10,14 @@ import {
 
 import markdown from './FormBuilder.md';
 import { createFormBuilder } from '@/src';
-import { ElFormAdaptor } from '@/src/el-form-adaptor';
+import { AntFormAdaptor } from '@/src/ant-form-adaptor';
 import ExampleComponents from './components';
 
-import 'element-ui/lib/theme-chalk/index.css';
+import 'ant-design-vue/dist/antd.css';
 import './style.scss';
 
 Vue.use(VueCompositionApi);
-Vue.use(ElementUI);
+Vue.use(Antd);
 
 localize({
   zh: {
@@ -41,15 +41,17 @@ export const BasicUsage = () => ({
   template: `
     <div class="form-builder-example">
       <validation-observer ref="observer" v-slot="{ invalid }">
-        <el-row :gutter="10">
-          <el-col :span="12" :xs="24">
-            <el-form
-              label-width="80px"
-              v-loading="loading"
+        <a-row :gutter="10">
+          <a-col :span="12">
+          <a-spin :spinning="loading">
+            <a-form
+              :colon="false"
+              :label-col="{ span: 4 }"
+              :wrapper-col="{ span: 16 }"
             >
-              <el-card v-if="!formConfig.length">
+              <a-card v-if="!formConfig.length">
                 <div class="placeholder"></div>
-              </el-card>
+              </a-card>
               <form-builder
                 @command="handleCommand"
                 :form="form"
@@ -59,32 +61,33 @@ export const BasicUsage = () => ({
               ></form-builder>
 
               <div class="form-action">
-                <el-button :disabled="loading" type="primary" @click="save">
+                <a-button :disabled="loading" type="primary" @click="save">
                   提交
-                </el-button>
+                </a-button>
               </div>
-            </el-form>
-          </el-col>
-          <el-col :span="12" :xs="24">
-            <el-card header="表单配置">
-              <el-input type="textarea" v-model="formConfigJSON" rows="45" />
-            </el-card>
-          </el-col>
-        </el-row>
+            </a-form>
+          </a-spin>
+          </a-col>
+          <a-col :span="12">
+            <a-card title="表单配置">
+              <a-textarea v-model="formConfigJSON" :rows="45" />
+            </a-card>
+          </a-col>
+        </a-row>
       </validation-observer>
-      <el-dialog title="提交结果" :visible.sync="showResultModal" width="80%">
+      <a-modal title="提交结果" v-model="showResultModal" width="80%">
         <pre>{{ JSON.stringify(formValues, null, 4) }}</pre>
         <span slot="footer">
-          <el-button type="primary" @click="showResultModal = false">确 定</el-button>
+          <a-button type="primary" @click="showResultModal = false">确 定</a-button>
         </span>
-      </el-dialog>
+      </a-modal>
     </div>
   `,
 
   components: {
     FormBuilder: createFormBuilder({
       components: {
-        ElFormAdaptor,
+        AntFormAdaptor,
 
         ...ExampleComponents
       }
@@ -116,10 +119,10 @@ export const BasicUsage = () => ({
       metadata: {},
 
       formShares: {
-        size: 'medium',
+        size: 'default',
 
         props: {
-          clearable: true
+          allowClear: true
         }
       },
 
@@ -128,9 +131,9 @@ export const BasicUsage = () => ({
       formConfigJSON: JSON.stringify(
         [
           {
-            component: 'el-card',
+            component: 'a-card',
             props: {
-              header: '基础信息'
+              title: '基础信息'
             },
             fields: [
               {
@@ -149,7 +152,7 @@ export const BasicUsage = () => ({
               },
               {
                 name: 'comment',
-                component: 'ElFormAdaptor',
+                component: 'AntFormAdaptor',
                 label: '评语',
                 tip: '一句话评价（使用 FormAdaptor 的自定义字段）',
                 tooltip: '精彩点评',
@@ -165,9 +168,9 @@ export const BasicUsage = () => ({
             ]
           },
           {
-            component: 'el-card',
+            component: 'a-card',
             props: {
-              header: '高级信息'
+              title: '高级信息'
             },
             fields: [
               {
@@ -181,10 +184,10 @@ export const BasicUsage = () => ({
               },
               {
                 name: 'date',
-                component: 'ElFormAdaptor',
+                component: 'AntFormAdaptor',
                 label: '发行日期',
                 extend: {
-                  component: 'el-date-picker'
+                  component: 'a-date-picker'
                 },
                 props: {
                   placeholder: '请通过日期选择器'
@@ -192,7 +195,7 @@ export const BasicUsage = () => ({
               },
               {
                 name: 'description',
-                component: 'ElFormAdaptor',
+                component: 'AntFormAdaptor',
                 label: '描述',
                 tip: '剧情描述（使用 FormAdaptor 的自定义字段）',
                 rules: {
@@ -326,7 +329,7 @@ BasicUsage.story = {
 // =============== End of Basic Usage =============== //
 
 export default {
-  title: 'FormBuilder|Element UI',
+  title: 'FormBuilder|Ant Design Vue',
   parameters: {
     notes: {
       markdown

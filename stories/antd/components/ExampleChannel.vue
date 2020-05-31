@@ -1,29 +1,30 @@
 <template>
   <validation-provider :rules="rules" v-slot="{ errors }">
-    <FormItem
+    <a-form-item
       label="频道"
       size="default"
       :required="isRequired"
-      :error="errors[0]"
+      :help="errors[0]"
+      :extra="tip"
     >
-      <Select
-        clearable
-        filterable
+      <a-select
+        allowClear
+        show-search
+        option-filter-prop="children"
         :value="localValue"
-        @input="updateLocalValue"
+        @change="updateLocalValue"
         placeholder="请输入关键词进行搜索"
       >
-        <Option
+        <a-select-option
           v-for="ch in showChannels"
           :key="ch.id"
           :value="ch.id"
           :label="ch.name"
         >
           <span>{{ ch.name }} - {{ ch.id }}</span>
-        </Option>
-      </Select>
-      <div class="ivu-form-item-tip" v-if="tip">{{ tip }}</div>
-    </FormItem>
+        </a-select-option>
+      </a-select>
+    </a-form-item>
   </validation-provider>
 </template>
 

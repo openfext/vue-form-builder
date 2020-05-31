@@ -1,28 +1,40 @@
 <template>
   <validation-provider :rules="rules" v-slot="{ errors }">
-    <FormItem
-      label="节目类型"
+    <a-form-item
+      label="标题"
       size="default"
       :required="isRequired"
-      :error="errors[0]"
+      :help="errors[0]"
+      :extra="tip"
     >
-      <RadioGroup :value="localValue" @input="updateLocalValue">
-        <Radio v-for="item in items" :key="item.value" :label="item.value">
-          {{ item.text }}
-        </Radio>
-      </RadioGroup>
-      <div class="ivu-form-item-tip" v-if="tip">{{ tip }}</div>
-    </FormItem>
+      <a-input
+        allowClear
+        :value="localValue"
+        @change="e => updateLocalValue(e.target.value)"
+        type="text"
+        placeholder="标题"
+      >
+        <template v-slot:addonAfter>
+          <span class="input-addon-after" icon="phone" @click="doSomething">
+            <a-icon type="phone" /> 触发表单事件
+          </span>
+        </template>
+      </a-input>
+    </a-form-item>
   </validation-provider>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.input-addon-after {
+  cursor: pointer;
+}
+</style>
 
 <script>
 import { useFormElement } from '@fext/vue-use';
 
 export default {
-  name: 'example-type',
+  name: 'example-name',
 
   props: {
     name: String,
@@ -32,23 +44,11 @@ export default {
     rules: {
       type: [String, Object]
     },
+    extend: Object,
+    metadata: Object,
     value: {
       required: false
     },
-    defaultValue: {
-      required: false
-    },
-    items: {
-      type: Array,
-      default() {
-        return [
-          { value: 1, text: '正片' },
-          { value: 2, text: '花絮' }
-        ];
-      }
-    },
-    extend: Object,
-    metadata: Object,
     formValues: {
       type: Object,
       required: false
@@ -77,9 +77,9 @@ export default {
     return {};
   },
 
-  created() {
-    if (!this.localValue) {
-      this.setInitialValue(this.defaultValue);
+  methods: {
+    doSomething(evt) {
+      this.$emit('command', 'doSomething', { id: 123456 });
     }
   }
 };

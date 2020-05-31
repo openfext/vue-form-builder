@@ -76,6 +76,7 @@
     "@vue/composition-api": "^0.5.0",
     "@vue/eslint-config-standard": "^5.0.1",
     "@vue/test-utils": "^1.0.2",
+    "ant-design-vue": "^1.6.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.0.6",
