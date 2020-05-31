@@ -4,9 +4,6 @@ orbs:
   codecov: codecov/codecov@1.0.2
 jobs:
   unit-test:
-    branches:
-      ignore:
-        - gh-pages
     executor:
       name: node/default
     steps:
@@ -25,3 +22,7 @@ workflows:
   test-flow:
     jobs:
       - unit-test
+        filters:
+          branches:
+            ignore:
+              - gh-pages
