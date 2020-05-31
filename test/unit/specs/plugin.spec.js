@@ -5,6 +5,7 @@ import { useForm, useFormElement } from '@fext/vue-use';
 import FormBuilder from 'src';
 import ElFormAdatpor from 'src/el-form-adaptor';
 import ViewFormAdatpor from 'src/view-form-adaptor';
+import AntFormAdatpor from 'src/ant-form-adaptor';
 
 const TestComponent = {
   template: `<div>
@@ -39,6 +40,7 @@ beforeAll(() => {
   Vue.use(FormBuilder);
   Vue.use(ElFormAdatpor);
   Vue.use(ViewFormAdatpor);
+  Vue.use(AntFormAdatpor);
 });
 
 describe('vue plugin', () => {
@@ -56,6 +58,12 @@ describe('vue plugin', () => {
 
   test('use view form adaptor', () => {
     const component = Vue.component('view-form-adaptor');
+
+    expect(component).toBeDefined();
+  });
+
+  test('use ant design adaptor', () => {
+    const component = Vue.component('ant-form-adaptor');
 
     expect(component).toBeDefined();
   });

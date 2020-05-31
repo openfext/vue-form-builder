@@ -8,6 +8,7 @@ module.exports = {
     '^.*\\.(vue)$': 'vue-jest',
     '^.+\\.[t|j]sx?$': 'babel-jest'
   },
+  setupFilesAfterEnv: ['<rootDir>/test/unit/setup.js'],
   collectCoverage: true,
   collectCoverageFrom: [
     '**/src/**/*.{js,vue,jsx}',

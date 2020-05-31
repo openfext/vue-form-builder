@@ -2,28 +2,28 @@ import Vue from 'vue';
 import VueCompositionAPI from '@vue/composition-api';
 import { mount } from '@vue/test-utils';
 import { useForm, useFormElement } from '@fext/vue-use';
-import ViewUI from 'view-design';
+import Antd from 'ant-design-vue';
 import {
   ValidationProvider,
   ValidationObserver
 } from 'vee-validate/dist/vee-validate.full';
 import { createFormBuilder } from 'src';
-import { ViewFormAdaptor } from 'src/view-form-adaptor';
+import { AntFormAdaptor } from 'src/ant-form-adaptor';
 
 const TestComponent = {
-  template: `<Form>
+  template: `<a-form>
     <form-builder
       :form="form"
       :shares="formShares"
       :config="formConfig"
       :metadata="metadata"
     ></form-builder>
-  </Form>`,
+  </a-form>`,
 
   components: {
     FormBuilder: createFormBuilder({
       components: {
-        ViewFormAdaptor
+        AntFormAdaptor
       }
     })
   },
@@ -55,7 +55,7 @@ const TestComponent = {
           fields: [
             {
               name: 'comment',
-              component: 'ViewFormAdaptor',
+              component: 'AntFormAdaptor',
               label: 'comment-label',
               tip: 'comment-tip',
               rules: {
@@ -69,7 +69,7 @@ const TestComponent = {
             },
             {
               name: 'type',
-              component: 'ViewFormAdaptor',
+              component: 'AntFormAdaptor',
               label: 'type-label',
               tip: 'type-tip',
               items: [
@@ -78,7 +78,7 @@ const TestComponent = {
                 { text: 'Type-3', value: '3' }
               ],
               extend: {
-                component: 'CheckboxGroup'
+                component: 'a-checkbox-group'
               }
             }
           ]
@@ -101,26 +101,36 @@ afterEach(() => {
 
 beforeAll(() => {
   Vue.use(VueCompositionAPI);
-  Vue.use(ViewUI);
+  Vue.use(Antd);
 
   Vue.component('ValidationProvider', ValidationProvider);
   Vue.component('ValidationObserver', ValidationObserver);
 });
 
-describe('view ui form adaptor', () => {
+describe('ant design vue form adaptor', () => {
   test('render adaptors', () => {
-    const adaptorWrappers = wrapper.findAllComponents(ViewFormAdaptor);
+    const adaptorWrappers = wrapper.findAllComponents(AntFormAdaptor);
 
     expect(adaptorWrappers.length).toBe(2);
 
-    expect(wrapper.findAll('.ivu-input').length).toBe(1);
-    expect(wrapper.findAll('.ivu-checkbox').length).toBe(3);
+    expect(wrapper.findAll('.ant-input').length).toBe(1);
+    expect(wrapper.findAll('.ant-checkbox').length).toBe(3);
   });
 
   test('update value', async () => {
-    const inputWrapper = wrapper.findAllComponents(ViewFormAdaptor).at(0);
+    const inputWrapper = wrapper.findAllComponents(AntFormAdaptor).at(0);
 
-    inputWrapper.vm.updateLocalValue('foo');
+    inputWrapper.vm.updateAntLocalValue({
+      target: {
+        value: 'ant'
+      }
+    });
+
+    await Vue.nextTick();
+
+    expect(vm.formValues.comment).toBe('ant');
+
+    inputWrapper.vm.updateAntLocalValue('foo');
 
     await Vue.nextTick();
 
