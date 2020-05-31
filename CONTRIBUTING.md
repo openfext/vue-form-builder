@@ -9,4 +9,4 @@ Looking forward to your contribution to this project, but here are the guideline
 
 To keep this project open and inclusive. Please read and follow our [Code of Conduct][coc].
 
-[coc]: https://github.com/codetrial/element-form-builder/blob/master/CODE_OF_CONDUCT.md
+[coc]: https://github.com/openfext/vue-form-builder/blob/master/CODE_OF_CONDUCT.md

@@ -1,6 +1,6 @@
 ---
 name: 'Bug Report'
-about: Report a bug in the Element Form Builder
+about: Report a bug in the Vue Form Builder
 ---
 
 ## Bug Report

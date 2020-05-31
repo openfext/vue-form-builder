@@ -1,17 +1,17 @@
-# element-form-builder
+# Vue Form Builder
 
 [![CircleCI](https://circleci.com/gh/openfext/vue-use.svg?style=svg)](https://circleci.com/gh/openfext/vue-use)
-[![codecov](https://codecov.io/gh/codetrial/element-form-builder/branch/develop/graph/badge.svg)](https://codecov.io/gh/codetrial/element-form-builder)
-[![License](https://img.shields.io/npm/l/element-form-builder.svg)](https://www.npmjs.com/package/element-form-builder)
-[![Version](https://img.shields.io/npm/v/element-form-builder.svg)](https://www.npmjs.com/package/element-form-builder)
+[![codecov](https://codecov.io/gh/openfext/vue-form-builder/branch/develop/graph/badge.svg)](https://codecov.io/gh/openfext/vue-form-builder)
+[![License](https://img.shields.io/npm/l/@fext/vue-form-builder.svg)](https://www.npmjs.com/package/@fext/vue-form-builder)
+[![Version](https://img.shields.io/npm/v/@fext/vue-form-builder.svg)](https://www.npmjs.com/package/@fext/vue-form-builder)
 
 Build powerful vue form with JSON schema and composition api. Any custom input components and popular ui frameworks such as Element UI are supported.
 
 ## Example
 
-[:zap: Live Preview](https://openfext.github.io/vue-admin-next/#/form/form-builder) | [:book: Storybook](https://codetrial.github.io/element-form-builder)
+[:zap: Live Preview](https://openfext.github.io/vue-admin-next/#/form/form-builder) | [:book: Storybook](https://openfext.github.io/vue-form-builder)
 
-![Screen Capture](https://github.com/codetrial/element-form-builder/raw/develop/.github/preview.gif)
+![Screen Capture](https://github.com/openfext/vue-form-builder/raw/develop/.github/preview.gif)
 
 ## Core Features
 
@@ -27,7 +27,7 @@ First you need a vue application like [Vue Admin Next](https://github.com/openfe
 ### Install
 
 ```bash
-npm i element-form-builder
+npm i @fext/vue-form-builder
 ```
 
 ### Registration
@@ -35,8 +35,8 @@ npm i element-form-builder
 #### Global Registration
 
 ```javascript
-import FormBuilder from 'element-form-builder';
-import ElFormAdaptor from 'element-form-builder/lib/adaptor/element';
+import FormBuilder from '@fext/vue-form-builder';
+import ElFormAdaptor from '@fext/vue-form-builder/lib/adaptor/element';
 
 Vue.use(FormBuilder); // form-builder
 Vue.use(ElFormAdaptor); // el-form-adaptor
@@ -47,8 +47,8 @@ Vue.use(ElFormAdaptor); // el-form-adaptor
 Use the factory method based on the specified component:
 
 ```javascript
-import { createFormBuilder } from 'element-form-builder';
-import { ElFormAdaptor } from 'element-form-builder/lib/adaptor/element';
+import { createFormBuilder } from '@fext/vue-form-builder';
+import { ElFormAdaptor } from '@fext/vue-form-builder/lib/adaptor/element';
 import AwesomeFormComponents from 'path/to/awesome/components';
 
 export default {

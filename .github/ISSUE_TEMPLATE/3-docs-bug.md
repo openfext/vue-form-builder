@@ -1,6 +1,6 @@
 ---
 name: 'Docs Issue Report'
-about: Report an issue in Element Form Builder's documentation
+about: Report an issue in Vue Form Builder's documentation
 ---
 
 ## Docs Issue

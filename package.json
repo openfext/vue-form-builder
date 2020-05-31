@@ -1,7 +1,7 @@
 {
-  "name": "element-form-builder",
-  "version": "2.0.2",
-  "description": "Build powerful element-ui form with JSON schema.",
+  "name": "@fext/vue-form-builder",
+  "version": "1.0.0",
+  "description": "Build powerful vue form with JSON schema and composition api.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "files": [

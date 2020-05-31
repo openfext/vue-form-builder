@@ -1,6 +1,6 @@
 ---
 name: 'Feature Request'
-about: Suggest a feature for Element Form Builder
+about: Suggest a feature for Vue Form Builder
 ---
 
 ## Feature Request
