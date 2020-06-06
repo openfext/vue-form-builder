@@ -132,6 +132,7 @@ export default {
 
 - [Vue.js](https://github.com/vuejs/vue)
 - [Vue Use](https://github.com/openfext/vue-use)
+- [Vee Validate](https://github.com/logaretm/vee-validate)
 - [ElementUI](https://github.com/ElemeFE/element)
 - [View UI](https://github.com/view-design/ViewUI)
 - [Ant Design Vue](https://github.com/vueComponent/ant-design-vue)
