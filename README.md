@@ -23,110 +23,16 @@ Build powerful vue form with JSON schema and composition api. Any custom input c
 
 ## Docs
 
-[Complete API Reference](http://openfext.github.io/docs/vue-form-builder)
+### 🇨🇳 Chinese
 
-## Quick Start
+- [Introduction](https://openfext.github.io/docs/zh/vue-form-builder/intro.html)
+- [Guide](https://openfext.github.io/docs/zh/vue-form-builder/guide/start.html)
+- [API Reference](https://openfext.github.io/docs/zh/vue-form-builder/api/component.html)
+- [Config Reference](https://openfext.github.io/docs/zh/vue-form-builder/config/schema.html)
 
-Let ’s take Element UI as an example, first you need a vue application like [Vue Admin Next](https://github.com/openfext/vue-admin-next).
+### 🇺🇸 English
 
-### Install
-
-```bash
-npm i @fext/vue-form-builder
-```
-
-### Registration
-
-#### Global Registration
-
-```javascript
-import FormBuilder from '@fext/vue-form-builder';
-import ElFormAdaptor from '@fext/vue-form-builder/lib/adaptor/element';
-
-Vue.use(FormBuilder); // form-builder
-Vue.use(ElFormAdaptor); // el-form-adaptor
-```
-
-#### Local Registration
-
-Use the factory method based on the specified component:
-
-```javascript
-import { createFormBuilder } from '@fext/vue-form-builder';
-import { ElFormAdaptor } from '@fext/vue-form-builder/lib/adaptor/element';
-import AwesomeFormComponents from 'path/to/awesome/components';
-
-export default {
-  name: 'awesome-form'
-
-  components: {
-    FormBuilder: createFormBuilder({
-      components: {
-        ElFormAdaptor,
-
-        ...AwesomeFormComponents
-      }
-    })
-  },
-}
-```
-
-### Build Form
-
-Vue template:
-
-```html
-<el-form>
-  <form-builder :form="form" :config="formConfig"></form-builder>
-</el-form>
-```
-
-Vue component:
-
-```javascript
-import { useForm } from '@fext/vue-use';
-
-export default {
-  components: {
-    FormBuilder: createFormBuilder({
-      components: {
-        ElFormAdaptor
-      }
-    })
-  },
-
-  setup() {
-    const form = useForm();
-
-    return {
-      form
-    };
-  },
-
-  data() {
-    return {
-      formConfig: [
-        {
-          component: 'div',
-          fields: [
-            {
-              name: 'comment',
-              component: 'ElFormAdaptor',
-              label: 'Normal Input',
-              rules: {
-                required: true
-              },
-              props: {
-                placeholder: 'Render with el-input component'
-              }
-            }
-          ]
-        }
-      ]
-    };
-  }
-};
-```
+WIP...
 
 ## Built With
 
