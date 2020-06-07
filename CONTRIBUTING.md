@@ -1,8 +1,8 @@
-# Contributing to Element Form Builder
+# Contributing to Vue Form Builder
 
 Looking forward to your contribution to this project, but here are the guidelines we would like you to follow:
 
-- [Contributing to Element Form Builder](#contributing-to-element-form-builder)
+- [Contributing to Vue Form Builder](#contributing-to-vue-form-builder)
   - [Code of Conduct](#code-of-conduct)
 
 ## Code of Conduct
