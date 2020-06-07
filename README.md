@@ -6,7 +6,7 @@
 [![Version](https://img.shields.io/npm/v/@fext/vue-form-builder.svg)](https://www.npmjs.com/package/@fext/vue-form-builder)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/openfext/vue-form-builder)
 
-Build powerful vue form with JSON schema and composition api. Any custom input components and popular ui frameworks such as [Element UI](https://element.eleme.cn/) , [View UI](https://www.iviewui.com/), [Ant Design Vue](https://www.antdv.com/) are supported.
+Build powerful vue form with JSON schema and composition api. Any custom input components and popular ui frameworks such as [Element UI](https://element.eleme.cn/), [View UI](https://www.iviewui.com/), [Ant Design Vue](https://www.antdv.com/) are supported.
 
 ## Example
 
