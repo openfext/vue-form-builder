@@ -27,10 +27,10 @@ Build powerful vue form with JSON schema and composition api. Any custom input c
 
 ### 🇨🇳 Chinese
 
-- [Introduction](https://openfext.github.io/docs/zh/vue-form-builder/intro.html)
-- [Guide](https://openfext.github.io/docs/zh/vue-form-builder/guide/start.html)
-- [API Reference](https://openfext.github.io/docs/zh/vue-form-builder/api/component.html)
-- [Config Reference](https://openfext.github.io/docs/zh/vue-form-builder/config/schema.html)
+- [Introduction](https://openfext.github.io/docs/vue-form-builder/intro.html)
+- [Guide](https://openfext.github.io/docs/vue-form-builder/guide/start.html)
+- [API Reference](https://openfext.github.io/docs/vue-form-builder/api/component.html)
+- [Config Reference](https://openfext.github.io/docs/vue-form-builder/config/schema.html)
 
 ### 🇺🇸 English
 
