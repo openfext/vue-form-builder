@@ -25,10 +25,10 @@ Vue Form Builder 是一个基于 JSON Schema 和 Vue Composition API 的动态�
 
 ## 参考文档
 
-- [介绍](https://openfext.github.io/docs/zh/vue-form-builder/intro.html)
-- [指南](https://openfext.github.io/docs/zh/vue-form-builder/guide/start.html)
-- [API Reference](https://openfext.github.io/docs/zh/vue-form-builder/api/component.html)
-- [Config Reference](https://openfext.github.io/docs/zh/vue-form-builder/config/schema.html)
+- [介绍](https://openfext.github.io/docs/vue-form-builder/intro.html)
+- [指南](https://openfext.github.io/docs/vue-form-builder/guide/start.html)
+- [API Reference](https://openfext.github.io/docs/vue-form-builder/api/component.html)
+- [Config Reference](https://openfext.github.io/docs/vue-form-builder/config/schema.html)
 
 ## 联系方式
 
