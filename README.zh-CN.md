@@ -17,18 +17,18 @@ Vue Form Builder 是一个基于 JSON Schema 和 Vue Composition API 的动态�
 - :watch: **兼容** - 多种主流 UI 框架开箱即配，就等你来
 - :radio: **可靠** - 多个生产环境的应用已在使用，还在等什么呢
 
-## 在线示例
-
-[:zap: Live Preview](https://openfext.github.io/vue-admin-next/#/form/form-builder) | [:book: Element UI Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-element-ui--basic-usage) | [:book: View UI Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-view-ui--basic-usage) | [:book: Ant Design Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-ant-design-vue--basic-usage)
-
-![Screen Capture](https://github.com/openfext/vue-form-builder/raw/develop/.github/preview.gif)
-
 ## 参考文档
 
 - [介绍](https://openfext.github.io/docs/vue-form-builder/intro.html)
 - [指南](https://openfext.github.io/docs/vue-form-builder/guide/start.html)
 - [API Reference](https://openfext.github.io/docs/vue-form-builder/api/component.html)
 - [Config Reference](https://openfext.github.io/docs/vue-form-builder/config/schema.html)
+
+## 在线示例
+
+[:zap: Live Preview](https://openfext.github.io/vue-admin-next/#/form/form-builder) | [:book: Element UI Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-element-ui--basic-usage) | [:book: View UI Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-view-ui--basic-usage) | [:book: Ant Design Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-ant-design-vue--basic-usage)
+
+![Screen Capture](https://github.com/openfext/vue-form-builder/raw/develop/.github/preview.gif)
 
 ## 联系方式
 

@@ -17,12 +17,6 @@ Build powerful vue form with JSON schema and composition api. Any custom input c
 - :watch: **Adaptable** - different ui frameworks can be used out of the box through the adapters
 - :radio: **Reliable** - has been used in multiple applications in the production environment
 
-## Example
-
-[:zap: Live Preview](https://openfext.github.io/vue-admin-next/#/form/form-builder) | [:book: Element UI Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-element-ui--basic-usage) | [:book: View UI Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-view-ui--basic-usage) | [:book: Ant Design Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-ant-design-vue--basic-usage)
-
-![Screen Capture](https://github.com/openfext/vue-form-builder/raw/develop/.github/preview.gif)
-
 ## Docs
 
 ### 🇨🇳 Chinese
@@ -35,6 +29,12 @@ Build powerful vue form with JSON schema and composition api. Any custom input c
 ### 🇺🇸 English
 
 WIP...
+
+## Example
+
+[:zap: Live Preview](https://openfext.github.io/vue-admin-next/#/form/form-builder) | [:book: Element UI Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-element-ui--basic-usage) | [:book: View UI Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-view-ui--basic-usage) | [:book: Ant Design Storybook](https://openfext.github.io/vue-form-builder/?path=/story/formbuilder-ant-design-vue--basic-usage)
+
+![Screen Capture](https://github.com/openfext/vue-form-builder/raw/develop/.github/preview.gif)
 
 ## Contacts
 
